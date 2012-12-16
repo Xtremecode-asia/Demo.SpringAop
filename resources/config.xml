@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+    <context:annotation-config/>
+    <aop:aspectj-autoproxy/>
+    <context:component-scan base-package="demo.springaop.service" />
+    <context:component-scan base-package="demo.springaop.aspect" />
+    <context:component-scan base-package="demo.springaop.spec" />
+
+    <!--&lt;!&ndash; business beans &ndash;&gt;-->
+    <!--<bean id="digestServiceImpl" class="demo.springaop.service.DigestService"/>-->
+
+    <!--&lt;!&ndash; aop &ndash;&gt;-->
+    <!--<bean id="digestServiceAuditor" class="demo.springaop.aspect.DigestServiceAuditor" />-->
+    <!--<bean id="digestServiceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">-->
+        <!--<property name="target" ref="digestServiceImpl" />-->
+        <!--<property name="interceptorNames">-->
+            <!--<list> <value>digestServiceAuditor</value></list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+</beans>
