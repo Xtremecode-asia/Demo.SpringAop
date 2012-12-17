@@ -32,7 +32,6 @@ public class ServiceCallsLoggerAspect {
         Class methodOwner = joinPoint.getSignature().getDeclaringType();
         logger = LogFactory.getLog(methodOwner);
         methodsName = String.format("%s.%s", methodOwner.getName(), joinPoint.getSignature().getName());
-        // Log the timestamp the beginning before actually calling the method
         logger.info(String.format(ON_BEFORE_LOG_MESSAGE_FORMAT, methodsName, DateTime.now()));
     }
 
