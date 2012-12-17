@@ -19,6 +19,7 @@ public class DigestSteps {
     private IDigestService digestService;
     private String plainString;
     private DigestResponse response;
+    private Exception error;
 
     @Given("a plain string: $plainString")
     public void givenPlainString(String plainString) {
@@ -27,8 +28,12 @@ public class DigestSteps {
 
     @When("the User hash the plain string using $hashAlgorithm algorithm")
     public void whenTheUserHashThePlainString(String hashAlgorithm) {
-        // Do something
-        response = digestService.digest(new DigestRequest(plainString, hashAlgorithm));
+        try{
+            response = digestService.digest(new DigestRequest(plainString, hashAlgorithm));
+        }
+        catch(Exception exception){
+            this.error = exception;
+        }
     }
 
     @Then("the plain string should be digested")
@@ -36,5 +41,10 @@ public class DigestSteps {
         assertThat(response, notNullValue());
         assertThat(Strings.isNullOrEmpty(response.getResult()), is(false));
         assertThat(response.getResult(), not(equalTo(plainString)));
+    }
+
+    @Then("the hash should return error")
+    public void thenTheHashShouldReturnError(){
+        assertThat(error, notNullValue());
     }
 }

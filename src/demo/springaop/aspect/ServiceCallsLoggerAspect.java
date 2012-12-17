@@ -4,6 +4,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.joda.time.DateTime;
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ServiceCallsLoggerAspect {
     private static final String ON_BEFORE_LOG_MESSAGE_FORMAT = "Start calling '%s' method at %s";
+    private static final String ON_ERROR_LOG_MESSAGE_FORMAT = "Error happened when calling '%s' method at %s";
     private static final String ON_AFTER_LOG_MESSAGE_FORMAT = "Finished calling '%s' method at %s";
 
     private Log logger;
@@ -39,4 +41,8 @@ public class ServiceCallsLoggerAspect {
         logger.info(String.format(ON_AFTER_LOG_MESSAGE_FORMAT, methodsName, DateTime.now()));
     }
 
+    @AfterThrowing(pointcut = "execution(public * demo.springaop.service.*.*(..))", throwing="ex")
+    public void logAfterExceptionThrownInServiceCall(Exception ex){
+        logger.error(String.format(ON_ERROR_LOG_MESSAGE_FORMAT, methodsName, DateTime.now()), ex);
+    }
 }
