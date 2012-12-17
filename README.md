@@ -52,3 +52,7 @@ HOW TO - Confirm that the dependency injection & Aspect are working:
 Future TO-DOs:
 --------------
 1. Improve the console demo.
+
+References:
+-----------
+1. "Chapter 6. Aspect Oriented Programming with Spring" -> http://static.springsource.org/spring/docs/2.5.5/reference/aop.html
