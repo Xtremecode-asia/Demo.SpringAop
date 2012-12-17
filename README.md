@@ -46,12 +46,22 @@ The anatomy of Demo.SpringAop project:
 HOW TO - Confirm that the dependency injection & Aspect are working:
 -------------------------------------------------------------------
 1. When running the Console demo, confirm that the output does not return "Digest service is unavailable.", instead it should return the output of invoking the Digest Service.
-2. Confirm that a log message "INFO: Start calling 'demo.springaop.service.IDigestService.digest' method at ..." displayed before the output.
-   Also, a log message "INFO: Finished calling 'demo.springaop.service.IDigestService.digest' method at ..." displayed after the output.
+2. Confirm that a log message "INFO: Start calling 'demo.springaop.service.IDigestService.digest' method at ..." &amp; 
+   "INFO: Finished calling 'demo.springaop.service.IDigestService.digest' method at ..." are displayed around the output.
 
 Future TO-DOs:
 --------------
-1. Improve the console demo.
+1. Replace the console demo to JavaFX or Play 2.0 clients.
+
+Changes History:
+----------------
+1. 18/12/2012:
+    - Renamed the Aspect class to 'ServiceCallsLoggerAspect'.
+    - Replaced @Around advise with @Before & @AfterReturning.
+    - Added @AfterThrowing advise.
+    - Added a new JBehave scenario to demonstrate the @AfterThrowing advise.
+    - Enabled Console support in the console client so that when the client is ran under command line box, 
+      it would ask the user to enter a plain string to digest.
 
 References:
 -----------
