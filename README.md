@@ -57,12 +57,13 @@ Changes History:
 ----------------
 1. 18/12/2012:
     - Renamed the Aspect class to 'ServiceCallsLoggerAspect'.
-    - Replaced @Around advise with @Before & @AfterReturning.
-    - Added @AfterThrowing advise.
-    - Added a new JBehave scenario to demonstrate the @AfterThrowing advise.
+    - Replaced @Around advice with @Before & @AfterReturning.
+    - Added @AfterThrowing advice.
+    - Added a new JBehave scenario to demonstrate the @AfterThrowing advice.
     - Enabled Console support in the console client so that when the client is ran under command line box, 
       it would ask the user to enter a plain string to digest.
-
+    - Refactored Pointcut expressions by moved them into 'InfrastructureAspect' class, in a method annotated with @Pointcut.
+    
 References:
 -----------
 1. "Chapter 6. Aspect Oriented Programming with Spring" -> http://static.springsource.org/spring/docs/2.5.5/reference/aop.html
