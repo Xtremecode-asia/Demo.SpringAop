@@ -16,16 +16,4 @@
     <context:component-scan base-package="demo.springaop.aspect" />
     <context:component-scan base-package="demo.springaop.spec" />
 
-    <!--&lt;!&ndash; business beans &ndash;&gt;-->
-    <!--<bean id="digestServiceImpl" class="demo.springaop.service.DigestService"/>-->
-
-    <!--&lt;!&ndash; aop &ndash;&gt;-->
-    <!--<bean id="digestServiceAuditor" class="demo.springaop.aspect.DigestServiceAuditor" />-->
-    <!--<bean id="digestServiceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">-->
-        <!--<property name="target" ref="digestServiceImpl" />-->
-        <!--<property name="interceptorNames">-->
-            <!--<list> <value>digestServiceAuditor</value></list>-->
-        <!--</property>-->
-    <!--</bean>-->
-
 </beans>
