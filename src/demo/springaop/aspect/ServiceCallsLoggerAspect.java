@@ -27,7 +27,7 @@ public class ServiceCallsLoggerAspect {
     private Log logger;
     private String methodsName;
 
-    @Before("execution(public * demo.springaop.service.*.*(..))")
+    @Before("demo.springaop.aspect.InfrastructureAspect.inServiceLayer()")
     public void logBeforeServiceCall(JoinPoint joinPoint) {
         Class methodOwner = joinPoint.getSignature().getDeclaringType();
         logger = LogFactory.getLog(methodOwner);
@@ -35,13 +35,13 @@ public class ServiceCallsLoggerAspect {
         logger.info(String.format(ON_BEFORE_LOG_MESSAGE_FORMAT, methodsName, DateTime.now()));
     }
 
-    @AfterReturning("execution(public * demo.springaop.service.*.*(..))")
+    @AfterReturning("demo.springaop.aspect.InfrastructureAspect.inServiceLayer()")
     public void logAfterServiceCall(){
         logger.info(String.format(ON_AFTER_LOG_MESSAGE_FORMAT, methodsName, DateTime.now()));
     }
 
-    @AfterThrowing(pointcut = "execution(public * demo.springaop.service.*.*(..))", throwing="ex")
-    public void logAfterExceptionThrownInServiceCall(Exception ex){
-        logger.error(String.format(ON_ERROR_LOG_MESSAGE_FORMAT, methodsName, DateTime.now()), ex);
+    @AfterThrowing(pointcut = "demo.springaop.aspect.InfrastructureAspect.inServiceLayer()", throwing = "exception")
+    public void logAfterExceptionThrownInServiceCall(Exception exception){
+        logger.error(String.format(ON_ERROR_LOG_MESSAGE_FORMAT, methodsName, DateTime.now()), exception);
     }
 }

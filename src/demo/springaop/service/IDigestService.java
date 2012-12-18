@@ -9,6 +9,6 @@ import demo.springaop.service.messages.DigestResponse;
  * Date: 12/16/12
  * Time: 3:19 PM
  */
-public interface IDigestService {
+public interface IDigestService extends IService {
     public DigestResponse digest(DigestRequest request);
 }
