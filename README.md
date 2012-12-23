@@ -40,8 +40,8 @@ The anatomy of Demo.SpringAop project:
 ---------------------------------------------------------
 1. lib folder - contains all required dependencies to run the samples.
 2. resources folder - contains the Spring's configuration xml files and Jbehave's story files.
-2. spec folder - contains java files which built the unit test demo.
-2. src folder - contains java files which built the console demo & Digest service's class + interface.
+3. spec folder - contains java files which built the unit test demo.
+4. src folder - contains java files which built the console demo & Digest service's class + interface.
 
 HOW TO - Confirm that the dependency injection & Aspect are working:
 -------------------------------------------------------------------
