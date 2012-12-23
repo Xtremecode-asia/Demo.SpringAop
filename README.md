@@ -14,7 +14,7 @@ HOW TO - Pull the project from github to your local machine:
 ------------------------------------------------------------
 1. Open the git bash console.
 2. Change directory to a folder where you are going to put the source code in.
-3. Type &amp; run this command: git clone git@github.com:saintc0d3r/Demo.SpringAop.git
+3. Type &amp; run this command: git clone git@github.com:Xtremecode-asia/Demo.SpringAop.git
 
 HOW TO - Run the unit test in Intellij IDEA:
 --------------------------------------------
